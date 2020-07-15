@@ -22,12 +22,17 @@ class HomePageTest(unittest.TestCase):
         search_field.send_keys('Drees') # simulación del teclado
         search_field.submit()
 
-    def test_search_salt_shaker(self):
+    def test_search_blouse(self):
         driver = self.driver
         search_field = driver.find_element_by_name('search_query')
 
-        search_field.send_keys('salt')
+        search_field.send_keys('Blouse')
         search_field.submit()
+
+        products = driver.find_elements_by_xpath('//*[@id="center_column"]/ul/li/div/div[1]/div/a[2]')
+        self.assertEqual(1, len(products))
+
+    # fin de busqueda
     
     def test_search_text_field(self):
         search_field = self.driver.find_element_by_id("search_query_top")

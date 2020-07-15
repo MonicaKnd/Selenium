@@ -1,8 +1,8 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options #opc chrome
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options #opc chrome
 
 class HomePageTest(unittest.TestCase):
 
@@ -11,7 +11,7 @@ class HomePageTest(unittest.TestCase):
         options.add_argument('--no-sandbox') #opc chrome
         self.driver = webdriver.Chrome(chrome_options = options, executable_path = './chromedriver')
         driver = self.driver
-        driver.implicitly_wait(15)
+        driver.implicitly_wait(30)
         driver.maximize_window()
         driver.get("http://automationpractice.com/index.php")
 
@@ -19,8 +19,8 @@ class HomePageTest(unittest.TestCase):
     def test_search_field(self):
         self.assertTrue(self.is_element_present(By.NAME, 'search_query'))
 
-    def test_language_option(self):
-        self.assertTrue(self.is_element_present(By.ID, 'aqui_va_elnom_del_ID'))
+    #def test_language_option(self):
+    #    self.assertTrue(self.is_element_present(By.ID, 'aqui_va_elnom_del_ID'))
 
     def tearDown(self):
         self.driver.quit()
@@ -36,4 +36,3 @@ class HomePageTest(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main(verbosity = 2)
 
-#ghKU
