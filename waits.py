@@ -20,9 +20,12 @@ class ExplicitWaitTests(unittest.TestCase):
     def test_create_new_customer(self):
         self.driver.find_element_by_link_text('Log In').click()
 
-    #    my_acount = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.LINK_TEXT, 'My Account')))
-    #    my_acount.click()
+        my_acount = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.LINK_TEXT, 'Create New Account'))) #nombre del boton 
+        my_acount.click()
 
+        #create_account_button = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(By.LINK_TEXT, 'nomdeboton'))
+    
+        #WebDriverWait(self.driver, 10).until(EC.title_contains('Create a New Account'))
         
 
     def tearDown(self):
